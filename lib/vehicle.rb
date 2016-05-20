@@ -4,6 +4,7 @@ class Vehicle
     @make = make
     @model = model
     @year = year
+    @id = @@vehicles.length.+(1)
   end
 
   define_method(:make) do
@@ -16,6 +17,10 @@ class Vehicle
 
   define_method(:year) do
     @year
+  end
+
+  define_method(:id) do
+    @id
   end
 
   define_singleton_method(:all) do
@@ -41,4 +46,18 @@ class Vehicle
     new_enough = age().<=(15)
     american.&(new_enough)
   end
+
+  define_singleton_method(:find) do |identification|
+    found_vehicle = nil
+    @@vehicles.each() do |vehicle|
+      if vehicle.id().eql?(identification.to_i())
+        found_vehicle = vehicle
+      end
+    end
+    found_vehicle
+  end
+
+
+
+
 end

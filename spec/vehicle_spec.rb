@@ -14,14 +14,14 @@ describe(Vehicle) do
 
   describe("#year") do
     it("returns the year of the vehicle") do
-      test_vehicle = Vehicle.new("Toyota", "Prius", 2000)
+      test_vehicle = Vehicle.new({:make=> "Toyota", :model => "Prius", :year => "2000", :color => "blue", :engine_size => "4L", :number_of_doors => "4"})
       expect(test_vehicle.year()).to(eq(2000))
     end
   end
 
   describe("#model") do
     it("returns the model of the vehicle") do
-      test_vehicle = Vehicle.new("Toyota", "Prius", 2000)
+      test_vehicle = Vehicle.new({:make=> "Toyota", :model => "Prius", :year => "2000", :color => "blue", :engine_size => "4L", :number_of_doors => "4"})
       expect(test_vehicle.model()).to(eq("Prius"))
     end
   end

@@ -7,8 +7,8 @@ describe(Vehicle) do
   end
   describe("#make") do
     it("returns the make of the vehicle") do
-      test_vehicle = Vehicle.new("Toyota", "Prius", 2000)
-      expect(test_vehicle.make()).to(eq("Toyota"))
+      test_vehicle = Vehicle.new({:make=> "Toyota", :model => "Prius", :year => "2000", :color => "blue", :engine_size => "4L", :number_of_doors => "4"})
+      expect(test_vehicle.make()).to(eq("Nissan"))
     end
   end
 
@@ -78,6 +78,28 @@ describe(Vehicle) do
       test_vehicle2 = Vehicle.new("Toyota", "Corolla", 1999)
       test_vehicle2.save()
       expect(Vehicle.find(test_vehicle.id())).to(eq(test_vehicle))
+    end
+  end
+
+
+  describe("#color") do
+    it("returns the model of the vehicle") do
+      test_vehicle = Vehicle.new("Toyota", "Prius", 2000, "blue", "4L", "4")
+      expect(test_vehicle.model()).to(eq("blue"))
+    end
+  end
+
+  describe("#engine_size") do
+    it("returns the model of the vehicle") do
+      test_vehicle = Vehicle.new("Toyota", "Prius", 2000, "blue", "4L", "4")
+      expect(test_vehicle.model()).to(eq("4L"))
+    end
+  end
+
+  describe("#number_of_doors") do
+    it("returns the model of the vehicle") do
+      test_vehicle = Vehicle.new("Toyota", "Prius", 2000, "blue", "4L", "4")
+      expect(test_vehicle.model()).to(eq("4"))
     end
   end
 end
